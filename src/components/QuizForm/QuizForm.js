@@ -3,32 +3,28 @@ import Button from "../Button/Button";
 import QuizTimer from "../QuizTimer/QuizTimer";
 import WORDS from "../../constants/programming_languages.json";
 import "./QuizForm.css";
-import { keyboard } from "@testing-library/user-event/dist/keyboard";
+import Header from "../Header";
 
 const QuizForm = () => {
   // constants
   const time = new Date();
   const expiryTimestamp = time.setSeconds(time.getSeconds() + 60 * 5);
-  const [words, setWords] = useState([]);
+  const [words, setWords] = useState(
+    WORDS.map((language, i) => {
+      return {
+        rank: i + 1,
+        language: language,
+        discovered: false,
+      };
+    })
+  );
+
   console.count("component rendered");
+
   // hooks
   const startFunctionRef = useRef();
   const [query, setQuery] = useState("");
   const [isRunning, setIsRunning] = useState(false);
-
-
-  useEffect(() => {
-    // on render
-    setWords(
-      WORDS.map((language, i) => {
-        return {
-          rank: i+1,
-          language: language,
-          discovered: false,
-        };
-      })
-    );
-  }, []);
 
   useEffect(() => {
     if (words.length > 0) {
@@ -72,6 +68,8 @@ const QuizForm = () => {
   return (
     <>
       <div className="quizform">
+        <Header title="Quiz" subtitle={"Try to find out the #24 most famous programming languages under 5 minutes!"} />
+
         {/* 1º SECTION  */}
         <div className="quizform__head">
           <div className="quizform__button">

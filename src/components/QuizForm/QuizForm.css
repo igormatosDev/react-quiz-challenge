@@ -1,3 +1,4 @@
+
 .quizform {
     padding: 20px;
 }
@@ -23,12 +24,10 @@
 
 .quizform__texts h2 {
     font-weight: bold;
-    color: #000;
+    color: #333;
     margin-bottom: 0;
     font-size: 15px;
 }
-
-.quizform__content {}
 
 .quizform__quiz {
     display: flex;
@@ -40,7 +39,7 @@
 }
 
 .quizform__quizline {
-    color: #111;
+    color: #333;
     border: 1px solid #eee;
     padding: 2px;
     width: 12rem;

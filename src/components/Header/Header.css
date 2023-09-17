@@ -1,0 +1,12 @@
+.header{
+    color: #333;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    width: 100%;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.header small{
+    width: 100%;
+    font-size: 12px;
+    display: block;
+}
