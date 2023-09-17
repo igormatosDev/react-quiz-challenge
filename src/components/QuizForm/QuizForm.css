@@ -1,0 +1,23 @@
+.quizform {
+    display: flex;
+    justify-content: space-between;
+}
+
+.quizform__button {
+    width: 100%;
+    padding: 20px;
+}
+
+.quizform__texts {
+    width: 100%;
+    display: inline-flex;
+    justify-content: space-around;
+    color: #333;
+    font-size: 25px;
+}
+.quizform__texts h2{
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 0;
+    font-size: 15px;
+}
