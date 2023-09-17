@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState, useMemo } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import Button from "../Button/Button";
 import QuizTimer from "../QuizTimer/QuizTimer";
 import WORDS from "../../constants/programming_languages.json";
@@ -121,10 +121,10 @@ const QuizForm = () => {
           {words.map((language) => {
             return (
               <QuizWord
+                key={language.rank}
                 word={language.language}
                 discovered={language.discovered}
                 rank={language.rank}
-                key={language.key}
               />
             );
           })}

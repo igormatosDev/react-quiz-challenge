@@ -2,7 +2,7 @@ import React from 'react'
 import './Header.css'
 const Header = ({title, subtitle}) => {
   return (
-    <h1 class="header">
+    <h1 className="header">
       {title}
       {subtitle && <small>{subtitle}</small>}
     </h1>

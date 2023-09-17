@@ -4,7 +4,7 @@ import { useTimer } from "react-timer-hook";
 const QuizTimer = (props) => {
   const { onExpire, expiryTimestamp, startFunctionRef, setIsRunning } = props;
 
-  const { seconds, minutes, isRunning, start, reset } = useTimer({
+  const { seconds, minutes, isRunning, start } = useTimer({
     expiryTimestamp,
     autoStart: false,
     onExpire: () => onExpire(),
