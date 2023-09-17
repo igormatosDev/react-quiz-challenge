@@ -1,4 +1,8 @@
 .quizform {
+    padding: 20px;
+}
+
+.quizform__head {
     display: flex;
     justify-content: space-between;
 }
@@ -6,6 +10,7 @@
 .quizform__button {
     width: 100%;
     padding: 20px;
+    padding-left: 0px;
 }
 
 .quizform__texts {
@@ -15,9 +20,69 @@
     color: #333;
     font-size: 25px;
 }
-.quizform__texts h2{
+
+.quizform__texts h2 {
     font-weight: bold;
     color: #000;
     margin-bottom: 0;
     font-size: 15px;
+}
+
+.quizform__content {}
+
+.quizform__quiz {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 200px;
+    max-height: auto;
+    margin-top: 20px;
+}
+
+.quizform__quizline {
+    color: #111;
+    border: 1px solid #eee;
+    padding: 2px;
+    width: 12rem;
+}
+
+
+@keyframes bg-success {
+    from {
+        background: linear-gradient(90deg, white, white, white, #0ea818);
+        opacity: 0;
+    }
+
+    to {
+        background: linear-gradient(90deg, white, white, white, #0ea818);
+        opacity: 1;
+    }
+}
+
+.quizform__quizline {
+    transition: all ease-in-out 2s;
+}
+
+
+.quizform__quizline.quiz_ok{
+    animation: bg-success 2s forwards;
+}
+.quizform__input {
+    height: auto;
+    border-radius: 5px;
+    font-size: 12px;
+    padding: 10px;
+    cursor: pointer;
+    border: 1px solid #eee;
+    width: 230px
+}
+.check_svg{
+    color: #fff;
+    width: 10px;
+    display: block;
+    float: right;
+    height: 10px;
+    margin-top: 5px;
+    margin-right: 5px;
+    fill: #fff;
 }

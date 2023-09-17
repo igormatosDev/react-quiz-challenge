@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
 import { useTimer } from "react-timer-hook";
+
 const QuizTimer = (props) => {
-  const { onExpire, expiryTimestamp, startFunctionRef, isRunningRef } = props;
+  const { onExpire, expiryTimestamp, startFunctionRef, setIsRunning } = props;
 
   const { seconds, minutes, isRunning, start, reset } = useTimer({
     expiryTimestamp,
@@ -11,12 +12,12 @@ const QuizTimer = (props) => {
 
   useEffect(() => {
     startFunctionRef.current = start;
-    isRunningRef.current = isRunning;
+    setIsRunning(isRunning);
   }, [startFunctionRef, isRunning]);
 
   return (
     <div className="timer">
-      {minutes}:{String(seconds).length == 1 ? "0" + seconds : seconds }
+      {minutes}:{String(seconds).length === 1 ? "0" + seconds : seconds }
     </div>
   );
 };
