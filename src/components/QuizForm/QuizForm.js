@@ -28,6 +28,8 @@ const QuizForm = () => {
   const [isRunning, setIsRunning] = useState(false);
 
   useEffect(() => {
+    console.count("useEffect");
+
     if (words.length > 0) {
       const newLang = words.map((language) => {
         return {
@@ -43,12 +45,11 @@ const QuizForm = () => {
         words.filter((l) => l.discovered).length
       ) {
         setQuery("");
-      }
-
-      setWords(newLang);
-      const won = newLang.every((language) => language.discovered === true);
-      if (won) {
-        return handleWin();
+        setWords(newLang);
+        const won = newLang.every((language) => language.discovered === true);
+        if (won) {
+          return handleWin();
+        }
       }
     }
   }, [query]);
