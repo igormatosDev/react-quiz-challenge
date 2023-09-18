@@ -5,6 +5,7 @@ import WORDS from "../../constants/programming_languages.json";
 import "./QuizForm.css";
 import Header from "../Header";
 import QuizWord from "../QuizWord/QuizWord";
+import { TimerEnums } from "../../constants/Enums";
 
 const QuizForm = () => {
   // constants
@@ -23,10 +24,9 @@ const QuizForm = () => {
   console.count("component rendered");
 
   // hooks
-  const startFunctionRef = useRef();
   const inputQueryRef = useRef();
   const [query, setQuery] = useState("");
-  const [isRunning, setIsRunning] = useState(false);
+  const [timerState, setTimerState] = useState(TimerEnums.Idle);
 
   useEffect(() => {
     console.count("useEffect");
@@ -56,12 +56,10 @@ const QuizForm = () => {
   }, [query]);
 
   const handleClick = () => {
-    if (startFunctionRef.current) {
-      startFunctionRef.current();
-      setTimeout(() => {
-        inputQueryRef.current?.focus();
-      }, 10);
-    }
+    setTimerState(TimerEnums.Running);
+    setTimeout(() => {
+      inputQueryRef.current?.focus();
+    }, 10);
   };
 
   const handleTimerExpire = () => {
@@ -84,7 +82,7 @@ const QuizForm = () => {
         {/* 1º SECTION  */}
         <div className="quizform__head">
           <div className="quizform__button">
-            {isRunning ? (
+            {timerState === TimerEnums.Running ? (
               <input
                 ref={inputQueryRef}
                 className="quizform__input"
@@ -115,8 +113,7 @@ const QuizForm = () => {
               <QuizTimer
                 onExpire={handleTimerExpire}
                 expiryTimestamp={expiryTimestamp}
-                startFunctionRef={startFunctionRef}
-                setIsRunning={setIsRunning}
+                timerState={timerState}
               />
             </div>
           </div>
