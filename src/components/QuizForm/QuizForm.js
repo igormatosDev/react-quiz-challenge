@@ -24,6 +24,7 @@ const QuizForm = () => {
 
   // hooks
   const startFunctionRef = useRef();
+  const inputQueryRef = useRef();
   const [query, setQuery] = useState("");
   const [isRunning, setIsRunning] = useState(false);
 
@@ -54,6 +55,11 @@ const QuizForm = () => {
     }
   }, [query]);
 
+  useEffect(() => {
+    // focusing query input text
+    inputQueryRef.current?.focus();
+  }, [startFunctionRef.current]);
+
   const handleClick = () => {
     if (startFunctionRef.current) {
       startFunctionRef.current();
@@ -82,6 +88,7 @@ const QuizForm = () => {
           <div className="quizform__button">
             {isRunning ? (
               <input
+                ref={inputQueryRef}
                 className="quizform__input"
                 type="text"
                 placeholder="Digite aqui a palavra"
