@@ -55,14 +55,12 @@ const QuizForm = () => {
     }
   }, [query]);
 
-  useEffect(() => {
-    // focusing query input text
-    inputQueryRef.current?.focus();
-  }, [startFunctionRef.current]);
-
   const handleClick = () => {
     if (startFunctionRef.current) {
       startFunctionRef.current();
+      setTimeout(() => {
+        inputQueryRef.current?.focus();
+      }, 10);
     }
   };
 
